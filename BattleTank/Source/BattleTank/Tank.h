@@ -2,9 +2,11 @@
 
 #pragma once
 
-#include "TankAimingComponent.h"
 #include "CoreMinimal.h"
+#include "TankAimingComponent.h"
+#include "GameFramework/Actor.h"
 #include "GameFramework/Pawn.h"
+#include "Components/StaticMeshComponent.h"
 #include "Tank.generated.h"
 
 UCLASS()
@@ -20,6 +22,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
